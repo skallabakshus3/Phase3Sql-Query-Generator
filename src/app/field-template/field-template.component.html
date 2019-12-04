@@ -1,0 +1,48 @@
+<form [formGroup]="regiForm">
+  <table>
+    
+    <tr>
+      <td>
+        <mat-form-field class="demo-full-width">
+          <input matInput placeholder="Field Name" [(ngModel)]="FieldName" formControlName="FieldName">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <mat-select [(ngModel)]="datatype" formControlName="DataType">
+            <mat-option *ngFor="let option of options" [value]="option">{{ option }}</mat-option>
+          </mat-select>
+          <!-- <input type="text" placeholder="Select Data Type" aria-label="Number" matInput [formControl]="DataType" 
+          [matAutocomplete]="auto" [(ngModel)]="datatype">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of options" [value]="option" >
+            {{option}}
+          </mat-option>
+        </mat-autocomplete> -->
+        </mat-form-field>
+      </td>
+      <td>
+
+        <label class="container">
+          <input type="checkbox" [(ngModel)]="marked" value="accepted" formControlName="null" data-md-icheck
+            (change)="toggleVisibility($event)" />
+          <span *ngIf="marked">Null</span><span *ngIf="!marked">Not null</span>
+
+          <span class="checkmark"></span>
+        </label>
+      </td>
+      <td>
+        <!-- <button mat-mini-fab matTooltip="Add row below" color="primary" (click)="createComponent()">+</button> -->
+      
+
+      <button mat-mini-fab matTooltip="Delete row" (click)="removeMe(index)" color="warn">-</button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+
+  
+  
+
+{{FieldName}} {{datatype}}{{marked}}

@@ -1,0 +1,250 @@
+<div class="card">
+
+  <div class="main row">
+    <!--First Column starts here-->
+    <div class="col-sm-9 col-md-6 col-lg-8">
+      <mat-card class="grid">
+        <form  [formGroup]="regiForm" >
+         <!-- <table>
+          <tr> -->
+            <mat-form-field class="width">
+              <input  matInput placeholder="Object Name" [(ngModel)]="ObjectName" formControlName="ObjectName" >     
+            </mat-form-field> 
+       <!--   </tr>
+          <tr>
+            <td>
+              <mat-form-field class="demo-full-width">
+                <input matInput placeholder="Field Name" [(ngModel)]="FieldName" formControlName="FieldName">
+              </mat-form-field>
+            </td>
+            <td>
+            <mat-form-field>
+                <mat-select [(ngModel)]="datatype" formControlName="DataType">
+                    <mat-option *ngFor="let option of options" [value]="option">{{ option }}</mat-option>
+                  </mat-select>
+                <input type="text" placeholder="Select Data Type" aria-label="Number" matInput [formControl]="DataType" 
+                  [matAutocomplete]="auto" [(ngModel)]="datatype">
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let option of options" [value]="option" >
+                    {{option}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </td>
+            <td>
+              
+                <label class="container"> 
+                    <input type="checkbox" [(ngModel)]="marked"  value="accepted" formControlName="null"  data-md-icheck (change)="toggleVisibility($event)"/>
+                        <span *ngIf="marked">Null</span><span *ngIf="!marked">Not null</span>
+                    
+                      <span class="checkmark"></span>
+                    </label>
+            </td>
+            <td> -->
+              <button mat-mini-fab matTooltip="Add row below" color="primary" (click)="createComponent()">+</button>
+            <!-- </td>
+          </tr>
+        </table> -->
+      </form>
+        <div>
+          <ng-template  #viewContainerRef></ng-template>
+        </div>
+        
+<!--Default Fields-->
+        <table>
+
+            <tr>
+                <td>
+                    <button mat-raised-button class="default" disabled>OBJ_VERSIONNUMBER</button>
+        
+                <td>
+                    <button mat-raised-button class="default" disabled>int</button>
+                </td>
+                <td>
+                    <button mat-raised-button class="default" disabled>Not Null</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button mat-raised-button class="default" disabled>DESCRIPTION</button>
+        
+                <td>
+                    <button mat-raised-button class="default" disabled>nvarchar(50)</button>
+                </td>
+                <td>
+                    <button mat-raised-button class="default" disabled>Null</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button mat-raised-button class="default" disabled>SUBGROUP_ID</button>
+        
+                <td>
+                    <button mat-raised-button class="default" disabled>nvarchar(50)</button>
+                </td>
+                <td>
+                    <button mat-raised-button class="default" disabled>Not Null</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button mat-raised-button class="default" disabled>COMMENT</button>
+        
+                <td>
+                    <button mat-raised-button class="default" disabled>nvarchar(MAX)</button>
+                </td>
+                <td>
+                    <button mat-raised-button class="default" disabled>Null</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button mat-raised-button class="default" disabled>DOCU_ONLY</button>
+        
+                <td>
+                    <button mat-raised-button class="default" disabled>BIT</button>
+                </td>
+                <td>
+                    <button mat-raised-button class="default" disabled>Not Null</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button mat-raised-button class="default" disabled>OBJ_VALID_FROM</button>
+        
+                <td>
+                    <button mat-raised-button class="default" disabled>nvarchar(50)</button>
+                </td>
+                <td>
+                    <button mat-raised-button class="default" disabled>Null</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button mat-raised-button class="default" disabled>OBJ_VALID_TO</button>
+        
+                <td>
+                    <button mat-raised-button class="default" disabled>nvarchar(50)</button>
+                </td>
+                <td>
+                    <button mat-raised-button class="default" disabled>Null</button>
+                </td>
+            </tr>
+        
+           
+            <tr>
+                <td>
+                    <button mat-raised-button class="default" disabled>THIRD_PARTY_SYSTEM_KEY_VALUE</button>
+        
+                <td>
+                    <button mat-raised-button class="default" disabled>nvarchar(50)</button>
+                </td>
+                <td>
+                    <button mat-raised-button class="default" disabled>Null</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button mat-raised-button class="default" disabled>IMPLEMENTATION_STATUS</button>
+        
+                <td>
+                    <button mat-raised-button class="default" disabled>nvarchar(50)</button>
+                </td>
+                <td>
+                    <button mat-raised-button class="default" disabled>Null</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button mat-raised-button class="default" disabled>ACTIVE</button>
+        
+                <td>
+                    <button mat-raised-button class="default" disabled>int</button>
+                </td>
+                <td>
+                    <button mat-raised-button class="default" disabled>Not Null</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button mat-raised-button class="default" disabled>REQUEST_ID</button>
+        
+                <td>
+                    <button mat-raised-button class="default" disabled>nvarchar(50)</button>
+                </td>
+                <td>
+                    <button mat-raised-button class="default" disabled>Null</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button mat-raised-button class="default" disabled>REQUEST_DATE</button>
+        
+                <td>
+                    <button mat-raised-button class="default" disabled>datetime</button>
+                </td>
+                <td>
+                    <button mat-raised-button class="default" disabled>Null</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button mat-raised-button class="default" disabled>LOCKED</button>
+        
+                <td>
+                    <button mat-raised-button class="default" disabled>nvarchar(50)</button>
+                </td>
+                <td>
+                    <button mat-raised-button class="default" disabled>Null</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button mat-raised-button class="default" disabled>LOCKEDTIME</button>
+        
+                <td>
+                    <button mat-raised-button class="default" disabled>datetime</button>
+                </td>
+                <td>
+                    <button mat-raised-button class="default" disabled>Null</button>
+                </td>
+            </tr>
+        </table>     
+      </mat-card>
+    </div>
+    <!--First Column Ends  here-->
+    <!--Second Column starts here-->
+    <div class="col-sm-3 col-md-6 col-lg-4">
+      <form>
+        <div class="form-group purple-border">
+          <p class="p-6"></p>
+          <mat-card class="grid">
+            <textarea class="form-control p-3" rows="20" cols="30" #query>
+            CREATE TABLE [dbo].[{{ObjectName}}]
+             ([{{FieldName}}] [{{datatype}}] {{marked}},
+              [OBJ_VERSIONNUMBER] [NVARCHAR](50) NOT NULL,
+              [DESCRIPTION] [NVARCHAR](50) NULL,
+              [KOMTH] [BIT] NOT NULL,
+              [SUBGROUP_ID] [nvarchar](50) NOT NULL,
+              [COMMENT] [nvarchar](MAX) NULL,
+              [DOCU_ONLY] [BIT] NOT NULL,
+              [DELETION_FLAG] [BIT] NOT NULL,
+              [OBJ_VALID_FROM] [nvarchar](50) NULL,
+              [OBJ_VALID_TO] [nvarchar](50) NULL,
+              [THIRD_PARTY_SYSTEM_KEY_VALUE] [nvarchar](50) NULL,
+              [IMPLEMENTATION_STATUS] [nvarchar](50) NULL,
+              [ACTIVE] [int] NOT NULL,
+              [REQUEST_ID] [nvarchar](50) NULL,
+              [REQUEST_DATE] [datetime] NULL,
+              [CW_ID] [nvarchar](50) NULL,
+              [LOCKED] [nvarchar](50) NULL,
+              [LOCKEDTIME] [datetime] NULL</textarea>
+            <button class="btn btn-primary font-italic " (click)="copyToClipboard(query)">Copy
+              Query</button>
+          </mat-card>
+        </div>
+      </form>
+    </div>
+    <!--Second Column Ends  here-->
+
+  </div>

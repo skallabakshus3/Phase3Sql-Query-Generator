@@ -1,0 +1,687 @@
+
+<div class="card">
+
+        <!-- Header Starts here -->
+        <header class="head bg-primary text-center">
+          <div class="card">
+            <h2 class="font-weight-dark text-dark">UPDATE Template</h2>
+          </div>
+        </header>
+        <!--Header Ends here-->
+    
+        <!-- Grid row Page Content Starts here-->
+        <div class="main row">
+          <!--First Column starts here-->
+          <div class="col-sm-9 col-md-6 col-lg-9">
+    
+            <!-- form starts here -->
+            <form class="text-center " [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              <p class="p-1"></p>
+              <div class="form-row mb-4">
+                <div class="col">
+                  <label>OBJ_ID</label>
+                  <!-- OBJ_ID -->
+                  <div class="form-group col-md-10">
+                    <input type="text" id="objid" [(ngModel)]="OBJ_ID" formControlName="oBJ_ID"
+                      class="form-control form-control-sm" placeholder="OBJ_ID"
+                      [ngClass]="{ 'is-invalid': submitted && f.oBJ_ID.errors }" />
+                    <div *ngIf="submitted && f.oBJ_ID.errors" class="alert alert-danger">
+                      <div *ngIf="f.oBJ_ID.errors.required">**Mandatory Fields**</div>
+                      <div *ngIf="f.oBJ_ID.errors.minlength">oBJ_ID must be at least 6 characters</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <label>OBJ_FIELD_ID</label>
+                  <!-- OBJ_FIELD_ID -->
+                  <div class="form-group col-md-10">
+                    <input type="text" [(ngModel)]="OBJ_FIELD_ID" formControlName="oBJ_FIELD_ID"
+                      class="form-control form-control-sm" placeholder="OBJ_FIELD_ID"
+                      [ngClass]="{ 'is-invalid': submitted && f.oBJ_FIELD_ID.errors }" />
+                    <div *ngIf="submitted && f.oBJ_FIELD_ID.errors" class="alert alert-danger">
+                      <div *ngIf="f.oBJ_FIELD_ID.errors.required">**Mandatory Fields**</div>
+                      <div *ngIf="f.oBJ_FIELD_ID.errors.minlength">oBJ_FIELD_ID must be at least 6 characters </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <label>SUBGROUP_ID</label>
+                  <!-- SUBGROUP_ID -->
+                  <div class="form-group col-md-10">
+                    <input type="text" [(ngModel)]="SUBGROUP_ID" formControlName="sUBGROUP_ID"
+                      class="form-control form-control-sm" placeholder="SUBGROUP_ID"
+                      [ngClass]="{ 'is-invalid': submitted && f.sUBGROUP_ID.errors }" />
+                    <div *ngIf="submitted && f.sUBGROUP_ID.errors" class="alert alert-danger">
+                      <div *ngIf="f.sUBGROUP_ID.errors.required">**Mandatory Fields**</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row mb-4">
+                <div class="col">
+                  <label>OBJ_FIELD_TYPE_ID</label>
+                  <!-- OBJ_FIELD_TYPE_ID -->
+                  <div class="form-group col-md-10">
+                    <select class="custom-select form-control-sm" (change)="OnChange($event)"
+                      formControlName="oBJ_FIELD_TYPE_ID" [(ngModel)]="OBJ_FIELD_TYPE_ID">
+                      <option value="Choose Your Table" disabled selected>Choose Your Table</option>
+                      <option *ngFor="let table of Table" [ngValue]="table">{{table}}</option>
+                    </select>
+                    <div *ngIf="submitted && f.oBJ_FIELD_TYPE_ID.errors" class="alert alert-danger">
+                      <div *ngIf="f.oBJ_FIELD_TYPE_ID.errors.required">Must be selected</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <label>DISPLAY_NAME</label>
+                  <!--DISPLAY_NAME -->
+                  <div class="form-group col-md-10">
+                    <input type="text" [(ngModel)]="DISPLAY_NAME" formControlName="dISPLAY_NAME"
+                      class="form-control form-control-sm" placeholder="DISPLAY_NAME"
+                      [ngClass]="{ 'is-invalid': submitted && f.dISPLAY_NAME.errors }" />
+                    <div *ngIf="submitted && f.dISPLAY_NAME.errors" class="alert alert-danger">
+                      <div *ngIf="f.dISPLAY_NAME.errors.required">**Mandatory Fields**</div>
+                      <div *ngIf="f.dISPLAY_NAME.errors.minlength">DISPLAY_NAME must be at least 6 characters</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <label>ISKEYMEMBER</label>
+                  <!-- ISKEYMEMBER -->
+                  <div class="form-group col-md-10">
+                    <input type="text" [(ngModel)]="ISKEYMEMBER" formControlName="iSKEYMEMBER"
+                      class="form-control form-control-sm" placeholder="iSKEYMEMBER"
+                      [ngClass]="{ 'is-invalid': submitted && f.iSKEYMEMBER.errors }" />
+                    <div *ngIf="submitted && f.iSKEYMEMBER.errors" class="alert alert-danger">
+                      <div *ngIf="f.iSKEYMEMBER.errors.required">**Mandatory Fields**</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row mb-4">
+                <div class="col">
+                  <label>REQUIREDTEXT</label>
+                  <!--REQUIREDTEXT-->
+                  <div class="form-group col-md-10">
+                    <input type="text" [(ngModel)]="REQUIREDTEXT" formControlName="rEQUIREDTEXT"
+                      class="form-control form-control-sm" placeholder="REQUIREDTEXT"
+                      [ngClass]="{ 'is-invalid': submitted && f.rEQUIREDTEXT.errors }" />
+                    <div *ngIf="submitted && f.rEQUIREDTEXT.errors" class="alert alert-danger">
+                      <div *ngIf="f.rEQUIREDTEXT.errors.required">**Mandatory Fields**</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <!-- REQUIRED -->
+                  <div class="form-group col-md-10">
+                    <label>REQUIRED</label>
+                    <input mdbInput type="text" [(ngModel)]="REQUIRED" formControlName="rEQFORM"
+                      class="form-control form-control-sm" placeholder="REQUIRED"
+                      [ngClass]="{ 'is-invalid': submitted && f.rEQFORM.errors }" />
+                    <div *ngIf="submitted && f.rEQFORM.errors" class="alert alert-danger">
+                      <div *ngIf="f.rEQFORM.errors.required">**Mandatory Fields**</div>
+                      <div *ngIf="f.rEQFORM.errors.minlength">Must be at least 6 characters</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <!-- ORDINAL_POSITION -->
+                  <div class="form-group col-md-10">
+                    <label>ORDINAL_POSITION</label>
+                    <input mdbInput type="text" [(ngModel)]="ORDINAL_POSITION" formControlName="oRDINAL_POSITION"
+                      class="form-control form-control-sm" placeholder="ORDINAL_POSITION"
+                      [ngClass]="{ 'is-invalid': submitted && f.oRDINAL_POSITION.errors }" />
+                    <div *ngIf="submitted && f.oRDINAL_POSITION.errors" class="alert alert-danger">
+                      <div *ngIf="f.oRDINAL_POSITION.errors.required">**Mandatory Fields**</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row mb-4">
+                <div class="col">
+                  <!-- DESCRIPTION -->
+                  <div class="form-group col-md-10">
+                    <label>DESCRIPTION</label>
+                    <input mdbInput type="text" [(ngModel)]="DESCRIPTION" formControlName="dESCRIPTION"
+                      class="form-control form-control-sm" placeholder="DESCRIPTION"
+                      [ngClass]="{ 'is-invalid': submitted && f.dESCRIPTION.errors }" />
+                    <div *ngIf="submitted && f.dESCRIPTION.errors" class="alert alert-danger">
+                      <div *ngIf="f.dESCRIPTION.errors.required">**Mandatory Fields**</div>
+                      <div *ngIf="f.dESCRIPTION.errors.minlength">Must be at least 6 characters</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <!-- POST_EDIT -->
+                  <div class="form-group col-md-10">
+                    <label>POST_EDIT</label>
+                    <input mdbInput type="text" [(ngModel)]="POST_EDIT" formControlName="pOST_EDIT"
+                      class="form-control form-control-sm" placeholder="POST_EDIT"
+                      [ngClass]="{ 'is-invalid': submitted && f.pOST_EDIT.errors }" />
+                    <div *ngIf="submitted && f.pOST_EDIT.errors" class="alert alert-danger">
+                      <div *ngIf="f.pOST_EDIT.errors.required">**Mandatory Fields**</div>
+                      <div *ngIf="f.pOST_EDIT.errors.minlength">Must be at least 6 characters</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <!-- OBJ_FIELD_HELPURL -->
+                  <div class="form-group col-md-10">
+                    <label>OBJ_FIELD_HELPURL</label>
+                    <input mdbInput type="text" [(ngModel)]="OBJ_FIELD_HELPURL" formControlName="oBJ_FIELD_HELPURL"
+                      class="form-control form-control-sm" placeholder="OBJ_FIELD_HELPURL"
+                      [ngClass]="{ 'is-invalid': submitted && f.oBJ_FIELD_HELPURL.errors }" />
+                    <div *ngIf="submitted && f.oBJ_FIELD_HELPURL.errors" class="alert alert-danger">
+                      <div *ngIf="f.oBJ_FIELD_HELPURL.errors.required">**Mandatory Fields**</div>
+                      <div *ngIf="f.oBJ_FIELD_HELPURL.errors.minlength">Must be at least 6 characters</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row mb-4">
+                <div class="col">
+                  <!-- OBJ_FIELD_CLASSIFICATION_ID -->
+                  <div class="form-group col-md-11">
+                    <label>OBJ_FIELD_CLASSIFICATION_ID</label>
+                    <input mdbInput type="text" [(ngModel)]="OBJ_FIELD_CLASSIFICATION_ID"
+                      formControlName="oBJ_FIELD_CLASSIFICATION_ID" class="form-control form-control-sm"
+                      placeholder="OBJ_FIELD_CLASSIFICATION_ID"
+                      [ngClass]="{ 'is-invalid': submitted && f.oBJ_FIELD_CLASSIFICATION_ID.errors }" />
+                    <div *ngIf="submitted && f.oBJ_FIELD_CLASSIFICATION_ID.errors" class="alert alert-danger">
+                      <div *ngIf="f.oBJ_FIELD_CLASSIFICATION_ID.errors.required">**Mandatory Fields**</div>
+                      <div *ngIf="f.oBJ_FIELD_CLASSIFICATION_ID.errors.minlength">Must be at least 6 characters</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <!-- TRANSLATION_FIELD_ID -->
+                  <div class="form-group col-md-10">
+                    <label>TRANSLATION_FIELD_ID</label>
+                    <input mdbInput type="text" [(ngModel)]="TRANSLATION_FIELD_ID" formControlName="tRANSLATION_FIELD_ID"
+                      class="form-control form-control-sm" placeholder="TRANSLATION_FIELD_ID"
+                      [ngClass]="{ 'is-invalid': submitted && f.tRANSLATION_FIELD_ID.errors }" />
+                    <div *ngIf="submitted && f.tRANSLATION_FIELD_ID.errors" class="alert alert-danger">
+                      <div *ngIf="f.tRANSLATION_FIELD_ID.errors.required">**Mandatory Fields**</div>
+                      <div *ngIf="f.tRANSLATION_FIELD_ID.errors.minlength">Must be at least 6 characters</div>
+                    </div>
+                  </div>
+                </div>
+                <div class=" col">
+                  <button class="btn btn-primary font-italic btn-block">GenerateScript</button>
+                </div>
+              </div>
+            </form>
+            <!-- Form Ends here-->
+          </div>
+          <!--First Column Ends  here-->
+    
+          <!--Second Column starts here-->
+          <div class="col-sm-3 col-md-6 col-lg-3">
+            <form>
+              <div class="form-group purple-border">
+                <p class="p-2"></p>
+                <!--Text Area in progress-->
+                <textarea class="form-control p-3" rows="15"  #query>INSERT INTO
+          [dbo].[OBJ_FIELD]([OBJ_ID]
+          ,[OBJ_FIELD_ID]
+          ,[SUBGROUP_ID]
+          ,[OBJ_FIELD_TYPE_ID]
+          ,[ISKEYMEMBER]
+          ,[REQUIRED]
+          ,[REQUIREDTEXT]
+          ,[DISPLAY_NAME]
+          ,[ORDINAL_POSITION]
+          ,[DESCRIPTION]
+          ,[TRANSLATION_FIELD_ID]
+          ,[OBJ_FIELD_HELPURL]
+          ,[POST_EDIT]
+          ,[OBJ_FIELD_CLASSIFICATION_ID])
+          VALUES
+          ('{{OBJ_ID}}','{{OBJ_FIELD_ID}}',
+          '{{SUBGROUP_ID}}','{{OBJ_FIELD_TYPE_ID}}'
+          ,'{{DISPLAY_NAME}}','{{ISKEYMEMBER}}','{{REQUIREDTEXT}}','{{REQUIRED}}','{{ORDINAL_POSITION}}','{{DESCRIPTION}}'
+          ,'{{OBJ_FIELD_CLASSIFICATION_ID}}','{{OBJ_FIELD_HELPURL}}','{{POST_EDIT}}','{{TRANSLATION_FIELD_ID}}')</textarea>
+                <button class="btn btn-primary font-italic " (click)="copyToClipboard(query)">Copy
+                  Query</button>
+              </div>
+            </form>
+          </div>
+          <!--Second Column Ends  here-->
+  
+        </div>
+        <!--Grid row page content ends here-->
+      </div>
+    
+      <!--Dropdown Div Starts-->
+      <div class="image1">
+    
+    
+        <div *ngIf="OBJ_FIELD_TYPE_ID === 'INPUT_VALIDATE_EXPRESSION'">
+    
+          <!-- Grid row Page Content Starts here-->
+          <div class="dropdown row">
+            <!--First Column starts here-->
+            <div class="col-sm-9 col-md-6 col-lg-9">
+    
+              <!-- form starts here -->
+              <form class="text-center  " [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    
+                <h5 class="font-weight-dark text-white">
+                  <p class="p-3 font-italic">OBJ_FIELD_EXPRESSION_VALIDATION TEMPLATE</p>
+                </h5>
+                <div class="form-row mb-4">
+                  <div class="col">
+                    <label class="font-weight-dark text-white">OBJ_ID</label>
+                    <!-- OBJ_ID -->
+                    <div class="form-group col-md-10">
+                      <input mdbInput type="text" id="objid" [(ngModel)]="OBJ_ID" formControlName="oBJ_ID"
+                        class="form-control form-control-sm" placeholder="OBJ_ID"
+                        [ngClass]="{ 'is-invalid': submitted && f.oBJ_ID.errors }" readonly />
+                      <div *ngIf="submitted && f.oBJ_ID.errors" class="alert alert-danger">
+                        <div *ngIf="f.oBJ_ID.errors.required">**Mandatory Fields**</div>
+                      </div>
+                    </div>
+    
+    
+                  </div>
+                  <div class="col">
+                    <label class="font-weight-dark text-white">OBJ_FIELD_ID</label>
+                    <!-- OBJ_FIELD_ID -->
+                    <div class="form-group col-md-10">
+                      <input type="text" [(ngModel)]="OBJ_FIELD_ID" formControlName="oBJ_FIELD_ID"
+                        class="form-control form-control-sm" placeholder="OBJ_FIELD_ID"
+                        [ngClass]="{ 'is-invalid': submitted && f.oBJ_FIELD_ID.errors }" readonly />
+                      <div *ngIf="submitted && f.oBJ_FIELD_ID.errors" class="alert alert-danger">
+                        <div *ngIf="f.oBJ_FIELD_ID.errors.required">**Mandatory Fields**</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <label class="font-weight-dark text-white">SUBGROUP_ID</label>
+                    <!-- SUBGROUP_ID -->
+                    <div class="form-group col-md-10">
+                      <input type="text" [(ngModel)]="SUBGROUP_ID" formControlName="sUBGROUP_ID"
+                        class="form-control form-control-sm" placeholder="SUBGROUP_ID"
+                        [ngClass]="{ 'is-invalid': submitted && f.sUBGROUP_ID.errors }" readonly />
+                      <div *ngIf="submitted && f.sUBGROUP_ID.errors" class="alert alert-danger">
+                        <div *ngIf="f.sUBGROUP_ID.errors.required">**Mandatory Fields**</div>
+                        <div *ngIf="f.sUBGROUP_ID.errors.sUBGROUP_ID">SUBGROUP_ID must be valid </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="form-row mb-4">
+                  
+                  <div class="col">
+    
+                    <label class="font-weight-dark text-white">VALIDATION_EXPRESSION</label>
+                    <!-- VALIDATION_EXPRESSION -->
+                    <div class="form-group col-md-10">
+                      <input mdbInput type="text" [(ngModel)]="VALIDATION_EXPRESSION"
+                        formControlName="vALIDATION_EXPRESSION" class="form-control form-control-sm"
+                        placeholder="VALIDATION_EXPRESSION"
+                        [ngClass]="{ 'is-invalid': submitted && f.vALIDATION_EXPRESSION.errors }" />
+                      <div *ngIf="submitted && f.vALIDATION_EXPRESSION.errors" class="alert alert-danger">
+                        <div *ngIf="f.vALIDATION_EXPRESSION.errors.required">**Mandatory Fields**</div>
+                      </div>
+                    </div>
+    
+                  </div>
+               
+                  <div class="col">
+                    <label class="font-weight-dark text-white">VALIDATION_HELP_TEXT</label>
+                    <!--VALIDATION_HELP_TEXT -->
+                    <div class="form-group col-md-10">
+                      <input type="text" [(ngModel)]="VALIDATION_HELP_TEXT" formControlName="vALIDATION_HELP_TEXT"
+                        class="form-control form-control-sm" placeholder="VALIDATION_HELP_TEXT"
+                        [ngClass]="{ 'is-invalid': submitted && f.vALIDATION_HELP_TEXT.errors }" />
+                      <div *ngIf="submitted && f.vALIDATION_HELP_TEXT.errors" class="alert alert-danger">
+                        <div *ngIf="f.vALIDATION_HELP_TEXT.errors.required">**Mandatory Fields**</div>
+                        <div *ngIf="f.vALIDATION_HELP_TEXT.errors.minlength">VALIDATION_HELP_TEXT must be at least 6
+                          characters</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <label class="font-weight-dark text-white">VALIDATION_TOOL_TIP</label>
+                    <!-- VALIDATION_TOOL_TIP -->
+                    <div class="form-group col-md-10">
+                      <input type="text" [(ngModel)]="VALIDATION_TOOL_TIP" formControlName="vALIDATION_TOOL_TIP"
+                        class="form-control form-control-sm" placeholder="VALIDATION_TOOL_TIP"
+                        [ngClass]="{ 'is-invalid': submitted && f.vALIDATION_TOOL_TIP.errors }" />
+                      <div *ngIf="submitted && f.vALIDATION_TOOL_TIP.errors" class="alert alert-danger">
+                        <div *ngIf="f.vALIDATION_TOOL_TIP.errors.required">**Mandatory Fields**</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--Button Section-->
+                <div class="form-group form-row mb-4">
+                  <div class=" col"><button class="btn btn-primary font-italic">GenerateScript</button></div>
+                  <div class=" col"><button type="button" class="btn btn-primary font-italic" (click)="resetForm()"
+                      [disabled]="!registerForm.valid">ResetForm</button>
+                  </div>
+                </div>
+              </form>
+              <!-- Form Ends here-->
+            </div>
+            <!--First Column Ends  here-->
+    
+            <!--Second Column starts here-->
+            <div class="col-sm-3 col-md-6 col-lg-3">
+              <form>
+                <div class="form-group purple-border">
+                  <p class="p-3"></p>
+                  <!--Text Area in progress-->
+                  <textarea class="form-control p-3" rows="10" cols="20" #query>INSERT INTO
+                      [dbo].[OBJ_FIELD_EXPRESSION_VALIDATION ]([OBJ_ID]
+                      ,[OBJ_FIELD_ID]
+                      ,[SUBGROUP_ID]
+                      ,[VALIDATION_EXPRESSION]
+                      ,[VALIDATION_HELP_TEXT]
+                      ,[VALIDATION_TOOL_TIP])   
+                      VALUES
+                      ('{{OBJ_ID}}','{{OBJ_FIELD_ID}}',
+                      '{{SUBGROUP_ID}}','{{VALIDATION_EXPRESSION}}'
+                      ,'{{VALIDATION_HELP_TEXT}}','{{VALIDATION_TOOL_TIP}}')</textarea>
+                    <button class="btn btn-primary font-italic " (click)="copyToClipboard(query)">Copy
+                    Query</button>
+                </div>
+              </form>
+              
+            </div>
+            <!--Second Column Ends  here-->
+    
+          </div>
+          <!--Grid row page content ends here-->
+        </div>
+    
+        <div *ngIf="OBJ_FIELD_TYPE_ID === 'LOOKUP'">
+    
+          <!-- Grid row Page Content Starts here-->
+          <div class="dropdown row">
+            <!--First Column starts here-->
+            <div class="col-sm-9 col-md-6 col-lg-9">
+    
+              <!-- form starts here -->
+              <form class="text-center " [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <h5 class="font-weight-dark text-white">
+                  <p class="p-3 font-italic">OBJ_FIELD_LOOKUP_LIST_VALIDATON TEMPLATE</p>
+                </h5>
+    
+                <div class="form-row mb-4">
+                  <div class="col">
+                    <label class="font-weight-dark text-white">OBJ_ID</label>
+                    <!-- OBJ_ID -->
+                    <div class="form-group col-md-10">
+                      <input mdbInput type="text" id="objid" [(ngModel)]="OBJ_ID" formControlName="oBJ_ID"
+                        class="form-control form-control-sm" placeholder="OBJ_ID"
+                        [ngClass]="{ 'is-invalid': submitted && f.oBJ_ID.errors }" readonly />
+                      <div *ngIf="submitted && f.oBJ_ID.errors" class="alert alert-danger">
+                        <div *ngIf="f.oBJ_ID.errors.required">**Mandatory Fields**</div>
+                      </div>
+                    </div>
+    
+    
+                  </div>
+                  <div class="col">
+                    <label class="font-weight-dark text-white">OBJ_FIELD_ID</label>
+                    <!-- OBJ_FIELD_ID -->
+                    <div class="form-group col-md-10">
+                      <input type="text" [(ngModel)]="OBJ_FIELD_ID" formControlName="oBJ_FIELD_ID"
+                        class="form-control form-control-sm" placeholder="OBJ_FIELD_ID"
+                        [ngClass]="{ 'is-invalid': submitted && f.oBJ_FIELD_ID.errors }" readonly />
+                      <div *ngIf="submitted && f.oBJ_FIELD_ID.errors" class="alert alert-danger">
+                        <div *ngIf="f.oBJ_FIELD_ID.errors.required">**Mandatory Fields**</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <label class="font-weight-dark text-white">SUBGROUP_ID</label>
+                    <!-- SUBGROUP_ID -->
+                    <div class="form-group col-md-10">
+                      <input type="text" [(ngModel)]="SUBGROUP_ID" formControlName="sUBGROUP_ID"
+                        class="form-control form-control-sm" placeholder="SUBGROUP_ID"
+                        [ngClass]="{ 'is-invalid': submitted && f.sUBGROUP_ID.errors }" readonly />
+                      <div *ngIf="submitted && f.sUBGROUP_ID.errors" class="alert alert-danger">
+                        <div *ngIf="f.sUBGROUP_ID.errors.required">**Mandatory Fields**</div>
+                        <div *ngIf="f.sUBGROUP_ID.errors.sUBGROUP_ID">SUBGROUP_ID must be valid </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="form-row mb-4">
+                  
+                  <div class="col">
+                    <label class="font-weight-dark text-white">VALUE_LIST</label>
+                    <!-- VALUE_LIST -->
+                    <div class="form-group col-md-10">
+                      <input mdbInput type="text" [(ngModel)]="VALUE_LIST" formControlName="vALUE_LIST"
+                        class="form-control form-control-sm" placeholder="VALUE_LIST"
+                        [ngClass]="{ 'is-invalid': submitted && f.vALUE_LIST.errors }" />
+                      <div *ngIf="submitted && f.vALUE_LIST.errors" class="alert alert-danger">
+                        <div *ngIf="f.vALUE_LIST.errors.required">**Mandatory Fields**</div>
+                      </div>
+                    </div>
+    
+                  </div>
+                  <!--Button Section-->
+              
+                  <div class=" col"><button class="btn btn-primary font-italic">GenerateScript</button></div>
+                  <div class=" col"><button type="button" class="btn btn-primary font-italic" (click)="resetForm()"
+                      [disabled]="!registerForm.valid">ResetForm</button>
+                  </div>
+                
+                </div>
+    
+                
+              </form>
+              <!-- Form Ends here-->
+            </div>
+            <!--First Column Ends  here-->
+    
+            <!--Second Column starts here-->
+            <div class="col-sm-3 col-md-6 col-lg-3">
+              <form>
+                <div class="form-group purple-border">
+                  <p class="p-3"></p>
+                  <!--Text Area in progress-->
+                  <textarea class="form-control" rows="10" #query>INSERT INTO
+                        [dbo].[OBJ_FIELD_LOOKUP_LIST_VALIDATON] ([OBJ_ID]
+                        ,[OBJ_FIELD_ID]
+                        ,[SUBGROUP_ID]
+                        ,[VALUE_LIST])              
+                        VALUES
+                        ('{{OBJ_ID}}','{{OBJ_FIELD_ID}}',
+                        '{{SUBGROUP_ID}}','{{VALUE_LIST}}'
+                        )</textarea>
+                  <button class="btn btn-primary font-italic " (click)="copyToClipboard(query)">Copy
+                    Query</button>
+                </div>
+              </form>
+            </div>
+            <!--Second Column Ends  here-->
+    
+          </div>
+          <!--Grid row page content ends here-->
+    
+        </div>
+    
+        <div *ngIf="OBJ_FIELD_TYPE_ID === 'LOOKUP_LIST'">
+    
+          <div class="dropdown row">
+            <div class="col-sm-9 col-md-6 col-lg-9">
+    
+              <!-- form starts here -->
+              <form class="text-center" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <h5 class="font-weight-dark text-white">
+                  <p class="p-3 font-italic">OBJ_FIELD_LOOKUP_VALIDATON TEMPLATE</p>
+                </h5>
+    
+    
+                <div class="form-row mb-4">
+                  <div class="col">
+                    <!-- OBJ_ID -->
+                    <div class="form-group col-md-10">
+                      <input mdbInput type="text" [(ngModel)]="OBJ_ID" formControlName="oBJ_ID"
+                        class="form-control form-control-sm" placeholder="OBJ_ID" readonly
+                        [ngClass]="{ 'is-invalid': submitted && f.oBJ_ID.errors }" />
+                      <div *ngIf="submitted && f.oBJ_ID.errors" class="alert alert-danger">
+                        <div *ngIf="f.oBJ_ID.errors.required">**Mandatory Fields**</div>
+                      </div>
+                    </div>
+    
+    
+                  </div>
+                  <div class="col">
+                    <!-- OBJ_FIELD_ID -->
+                    <div class="form-group col-md-10">
+                      <input type="text" [(ngModel)]="OBJ_FIELD_ID" formControlName="oBJ_FIELD_ID"
+                        class="form-control form-control-sm" placeholder="OBJ_FIELD_ID" readonly
+                        [ngClass]="{ 'is-invalid': submitted && f.oBJ_FIELD_ID.errors }" />
+                      <div *ngIf="submitted && f.oBJ_FIELD_ID.errors" class="alert alert-danger">
+                        <div *ngIf="f.oBJ_FIELD_ID.errors.required">**Mandatory Fields**</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col">
+                    <!-- SUBGROUP_ID -->
+                    <div class="form-group col-md-10">
+                      <input type="text" [(ngModel)]="SUBGROUP_ID" formControlName="sUBGROUP_ID"
+                        class="form-control form-control-sm" placeholder="SUBGROUP_ID" readonly
+                        [ngClass]="{ 'is-invalid': submitted && f.sUBGROUP_ID.errors }" />
+                      <div *ngIf="submitted && f.sUBGROUP_ID.errors" class="alert alert-danger">
+                        <div *ngIf="f.sUBGROUP_ID.errors.required">**Mandatory Fields**</div>
+                        <div *ngIf="f.sUBGROUP_ID.errors.sUBGROUP_ID">SUBGROUP_ID must be valid </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+    
+                <div class="form-row mb-4">         
+                  <div class="col">
+                    <!-- LOOKUP_TABLE_NAME -->
+                    <div class="form-group col-md-10">
+                      <input mdbInput type="text" [(ngModel)]="LOOKUP_TABLE_NAME" formControlName="lOOKUP_TABLE_NAME"
+                        class="form-control form-control-sm" placeholder="LOOKUP_TABLE_NAME"
+                        [ngClass]="{ 'is-invalid': submitted && f.lOOKUP_TABLE_NAME.errors }" />
+                      <div *ngIf="submitted && f.lOOKUP_TABLE_NAME.errors" class="alert alert-danger">
+                        <div *ngIf="f.lOOKUP_TABLE_NAME.errors.required">**Mandatory Fields**</div>
+                      </div>
+                    </div>
+    
+                  </div>
+                  <div class="col">
+                    <!--LOOKUP_TABLE_KEY -->
+                    <div class="form-group col-md-10">
+                      <input type="text" [(ngModel)]="LOOKUP_TABLE_KEY" formControlName="lOOKUP_TABLE_KEY"
+                        class="form-control form-control-sm" placeholder="LOOKUP_TABLE_KEY"
+                        [ngClass]="{ 'is-invalid': submitted && f.vALIDATION_HELP_TEXT.errors }" />
+                      <div *ngIf="submitted && f.lOOKUP_TABLE_KEY.errors" class="alert alert-danger">
+                        <div *ngIf="f.lOOKUP_TABLE_KEY.errors.required">**Mandatory Fields**</div>
+                        <div *ngIf="f.lOOKUP_TABLE_KEY.errors.minlength">LOOKUP_TABLE_KEY must be at least 6
+                          characters</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <!-- LOOKUP_TABLE_DESCRIPTION -->
+                    <div class="form-group col-md-10">
+                      <input type="text" [(ngModel)]="LOOKUP_TABLE_DESCRIPTION" formControlName="lOOKUP_TABLE_DESCRIPTION"
+                        class="form-control form-control-sm" placeholder="LOOKUP_TABLE_DESCRIPTION"
+                        [ngClass]="{ 'is-invalid': submitted && f.lOOKUP_TABLE_DESCRIPTION.errors }" />
+                      <div *ngIf="submitted && f.lOOKUP_TABLE_DESCRIPTION.errors" class="alert alert-danger">
+                        <div *ngIf="f.lOOKUP_TABLE_DESCRIPTION.errors.required">**Mandatory Fields**</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-row mb-4">
+                  <div class="col">
+                    <!--LOOKUP_TABLE_FILTER -->
+                    <div class="form-group col-md-10">
+                      <input type="text" [(ngModel)]="LOOKUP_TABLE_FILTER" formControlName="lOOKUP_TABLE_FILTER"
+                        class="form-control form-control-sm" placeholder="LOOKUP_TABLE_FILTER"
+                        [ngClass]="{ 'is-invalid': submitted && f.lOOKUP_TABLE_FILTER.errors }" />
+                      <div *ngIf="submitted && f.lOOKUP_TABLE_FILTER.errors" class="alert alert-danger">
+                        <div *ngIf="f.lOOKUP_TABLE_FILTER.errors.required">**Mandatory Fields**</div>
+                        <div *ngIf="f.lOOKUP_TABLE_FILTER.errors.minlength">lOOKUP_TABLE_FILTER must be at least 6
+                          characters</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <!-- CASCADE -->
+                    <div class="form-group col-md-10">
+                      <input type="text" [(ngModel)]="CASCADE" formControlName="cASCADE"
+                        class="form-control form-control-sm" placeholder="CASCADE"
+                        [ngClass]="{ 'is-invalid': submitted && f.cASCADE.errors }" />
+                      <div *ngIf="submitted && f.cASCADE.errors" class="alert alert-danger">
+                        <div *ngIf="f.cASCADE.errors.required">**Mandatory Fields**</div>
+                      </div>
+                    </div>
+                  </div>
+                   <!--Button Section-->
+                
+                   <div class="col">
+                     <button class="btn btn-primary font-italic">GenerateScript</button>
+                     <button type="button" class="btn btn-primary font-italic"(click)="resetForm()">ResetForm</button>
+                   
+                   </div>
+                </div>
+    
+    
+    
+               
+                
+              </form>
+              <!-- Form Ends here-->
+            </div>
+    
+            <!--Column starts here-->
+            <div class="col-sm-3 col-md-6 col-lg-3">
+              <form class="p-2">
+                <div class="form-group purple-border">
+                  <p class="p-3"></p>
+                  <!--Text Area in progress-->
+                  <textarea class="form-control p-3 " rows="15" #query>INSERT INTO
+                        [dbo].[OBJ_FIELD_LOOKUP_VALIDATON]
+                        ([OBJ_ID]
+                        ,[OBJ_FIELD_ID]
+                        ,[SUBGROUP_ID]
+                        ,[LOOKUP_TABLE_NAME]
+                        ,[LOOKUP_TABLE_KEY]
+                        ,[LOOKUP_TABLE_DESCRIPTION]
+                       ,[LOOKUP_TABLE_FILTER]
+                        ,[CASCADE])
+                        VALUES
+                        ('{{OBJ_ID}}','{{OBJ_FIELD_ID}}',
+                        '{{SUBGROUP_ID}}','{{LOOKUP_TABLE_NAME}}','{{LOOKUP_TABLE_KEY}}','{{LOOKUP_TABLE_DESCRIPTION}}'
+                        ,'{{LOOKUP_TABLE_FILTER}}','{{CASCADE}}')</textarea>
+                        <button class="btn btn-primary font-italic " (click)="copyToClipboard(query)">Copy
+                          Query</button>
+                </div>
+              </form>
+            </div>
+          </div>
+    
+        </div>
+    
+        <!--Button Section-->
+        <div class="form-row mb-4">
+    
+          <div class="col">
+            <button type="button" class="btn btn-primary font-italic btn-block"
+              (click)="addComponentClick.emit()">Add Template</button>
+              <button type="button" class="btn btn-primary font-italic btn-block"
+              (click)="removeComponent()">Remove Template</button>
+          </div>
+    
+        </div>
+      </div>
+      <!--Dropdown Div Ends-->
