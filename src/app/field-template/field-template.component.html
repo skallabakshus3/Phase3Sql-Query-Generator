@@ -27,7 +27,6 @@
           <input type="checkbox" [(ngModel)]="marked" value="accepted" formControlName="null" data-md-icheck
             (change)="toggleVisibility($event)" />
           <span *ngIf="marked">Null</span><span *ngIf="!marked">Not null</span>
-
           <span class="checkmark"></span>
         </label>
       </td>

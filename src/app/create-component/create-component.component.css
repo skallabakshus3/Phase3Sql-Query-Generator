@@ -1,29 +1,22 @@
-.example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .example-full-width {
-    width: 40%;
-  }
+
+
 
   textarea
 {
     font: 13px "Times New Roman";
     
 }
-  
-  .example-full-width {
-    width: 100%;
+.demo-full-width{
+  width: 100%;
+}
+ 
+  .demo-full{
+    width: 200%;
   }
-  
   .width{
     width: 200%;
   }
-  mat-grid-tile {
-    background: lightblue;
-  }
+  
   .card{
     background: lightblue;
   }
@@ -39,5 +32,6 @@ line-height: 0.5;
 background: url(https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-03.jpg) no-repeat 50% 50%;
 }
 .default {
-  width: 200px;
+  width: 250px;
+  
  }
