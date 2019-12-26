@@ -1,11 +1,11 @@
 <div class="card">
 
     <!-- Header Starts here -->
-    <!-- <header class="head bg-primary text-center">
+    <header class="head bg-primary text-center">
         <div class="card">
             <h2 class="font-weight-dark text-dark">CREATE Template</h2>
         </div>
-    </header> -->
+    </header>
     <!--Header Ends here-->
 
     <!-- Grid row Page Content Starts here-->
@@ -18,24 +18,19 @@
                         <table>
                             <tr>
                                 <mat-form-field class="demo-full">
-                                    <input matInput placeholder="Object Name" [(ngModel)]="ObjectName"
-                                        formControlName="ObjectName">
+                                    <input matInput placeholder="Object Name" [(ngModel)]="ObjectName" formControlName="ObjectName">
                                 </mat-form-field>
                             </tr>
                             <tr>
                                 <td>
                                     <mat-form-field class="demo-full-width">
-                                        <input matInput placeholder="Field Name" [(ngModel)]="FieldName"
-                                            formControlName="FieldName">
+                                        <input matInput placeholder="Field Name" [(ngModel)]="FieldName" formControlName="FieldName">
                                     </mat-form-field>
                                 </td>
                                 <td>
                                     <mat-form-field class="demo-full-width">
-                                        <!-- <mat-select [(ngModel)]="datatype" formControlName="DataType">
-                                            <mat-option *ngFor="let option of options" [value]="option">{{ option }}
-                                            </mat-option>
-                                        </mat-select> -->
-                                        <input type="text" placeholder="Select Data Type" aria-label="Number" matInput
+                
+                                        <input type="text" placeholder="Data Type" aria-label="Number" matInput
                                             formControlName="DataType" [matAutocomplete]="auto" [(ngModel)]="datatype">
                                         <mat-autocomplete #auto="matAutocomplete">
                                             <mat-option *ngFor="let option of options" [value]="option">
@@ -45,151 +40,196 @@
                                     </mat-form-field>
                                 </td>
                                 <td>
-
+                
                                     <label class="container">
-                                        <input type="checkbox" [(ngModel)]="marked" value="accepted"
-                                            formControlName="null" data-md-icheck (change)="toggleVisibility($event)" />
-                                        <span *ngIf="marked">Null</span><span *ngIf="!marked">Not null</span>
+                                        <input type="checkbox" [(ngModel)]="marked" value="accepted" formControlName="null"
+                                            data-md-icheck (change)="toggleVisibility($event)" />
+                                        <div *ngIf="marked">Null </div>
+                                        <div *ngIf="!marked">Not null</div>
                                         <span class="checkmark"></span>
                                     </label>
                                 </td>
                                 <td>
                                     <button mat-mini-fab matTooltip="Add row below" color="primary"
                                         (click)="createComponent()">+</button>
-
-
+                
+                
                                     <!-- <button mat-mini-fab matTooltip="Delete row" (click)="removeMe(index)" color="warn">-</button> -->
                                 </td>
                             </tr>
                         </table>
                     </form>
                     <div>
-                        <ng-template #viewContainerRef></ng-template>
+                        <!-- <ng-template #viewContainerRef>
+                                        </ng-template>*ngFor="let lst of lstColumn" -->
+                
+                        <app-field-template #filterCriteria></app-field-template>
                     </div>
-
-
-                    <!--default fields-->
-                    <table>
-                        <tr>
-                            <td> <button mat-raised-button color="accent" class="default">OBJ_VERSIONNUMBER</button>
-                            </td>
-
-                            <td> <button mat-raised-button disabled class="default">Int</button></td>
-                            <td> <button mat-raised-button disabled class="default">Not NULL</button></td>
-
-                        </tr>
-                        <tr>
-                            <td> <button mat-raised-button color="accent" class="default">DESCRIPTION</button></td>
-
-                            <td> <button mat-raised-button disabled class="default">NVarchar(50)</button></td>
-                            <td> <button mat-raised-button disabled class="default"> NULL</button></td>
-
-                        </tr>
-                        <tr>
-                            <td> <button mat-raised-button color="accent" class="default">SUBGROUP_ID</button></td>
-
-                            <td> <button mat-raised-button disabled class="default">NVarchar(50)</button></td>
-                            <td> <button mat-raised-button disabled class="default">Not NULL</button></td>
-
-                        </tr>
-                        <tr>
-                            <td> <button mat-raised-button color="accent" class="default">COMMENT</button></td>
-
-                            <td> <button mat-raised-button disabled class="default">NVarchar(MAX)</button></td>
-                            <td> <button mat-raised-button disabled class="default"> NULL</button></td>
-
-                        </tr>
-                        <tr>
-                            <td> <button mat-raised-button color="accent" class="default">DOCU_ONLY</button></td>
-
-                            <td> <button mat-raised-button disabled class="default">Bit</button></td>
-                            <td> <button mat-raised-button disabled class="default">Not NULL</button></td>
-
-                        </tr>
-                        <tr>
-                            <td> <button mat-raised-button color="accent" class="default">DELETION_FLAG</button></td>
-
-                            <td> <button mat-raised-button disabled class="default">Bit</button></td>
-                            <td> <button mat-raised-button disabled class="default">Not NULL</button></td>
-
-                        </tr>
-                        <tr>
-                            <td> <button mat-raised-button color="accent" class="default">OBJ_VALID_FROM</button></td>
-
-                            <td> <button mat-raised-button disabled class="default">NVarchar(50)</button></td>
-                            <td> <button mat-raised-button disabled class="default"> NULL</button></td>
-
-                        </tr>
-                        <tr>
-                            <td> <button mat-raised-button color="accent" class="default">OBJ_VALID_TO</button></td>
-
-                            <td> <button mat-raised-button disabled class="default">NVarchar(50)</button></td>
-                            <td> <button mat-raised-button disabled class="default"> NULL</button></td>
-
-                        </tr>
-                        <tr>
-                            <td> <button mat-raised-button color="accent"
-                                    class="default">THIRD_PARTY_SYSTEM_KEY_VALUE</button></td>
-
-                            <td> <button mat-raised-button disabled class="default">NVarchar(50)</button></td>
-                            <td> <button mat-raised-button disabled class="default"> NULL</button></td>
-
-                        </tr>
-                        <tr>
-                            <td> <button mat-raised-button color="accent" class="default">IMPLEMENTATION_STATUS</button>
-                            </td>
-
-                            <td> <button mat-raised-button disabled class="default">NVarchar(50)</button></td>
-                            <td> <button mat-raised-button disabled class="default"> NULL</button></td>
-
-                        </tr>
-                        <tr>
-                            <td> <button mat-raised-button color="accent" class="default">ACTIVE</button></td>
-
-                            <td> <button mat-raised-button disabled class="default">Int</button></td>
-                            <td> <button mat-raised-button disabled class="default">Not NULL</button></td>
-
-                        </tr>
-                        <tr>
-                            <td> <button mat-raised-button color="accent" class="default">REQUEST_ID</button></td>
-
-                            <td> <button mat-raised-button disabled class="default">NVarchar(50)</button></td>
-                            <td> <button mat-raised-button disabled class="default"> NULL</button></td>
-
-                        </tr>
-
-
-                        <tr>
-                            <td> <button mat-raised-button color="accent" class="default">REQUEST_DATE</button></td>
-
-                            <td> <button mat-raised-button disabled class="default">datetime)</button></td>
-                            <td> <button mat-raised-button disabled class="default"> NULL</button></td>
-
-                        </tr>
-                        <tr>
-                            <td> <button mat-raised-button color="accent" class="default">CW_ID</button></td>
-
-                            <td> <button mat-raised-button disabled class="default">NVarchar(50)</button></td>
-                            <td> <button mat-raised-button disabled class="default"> NULL</button></td>
-
-                        </tr>
-                        <tr>
-                            <td> <button mat-raised-button color="accent" class="default">LOCKED</button></td>
-
-                            <td> <button mat-raised-button disabled class="default">NVarchar(50)</button></td>
-                            <td> <button mat-raised-button disabled class="default"> NULL</button></td>
-
-                        </tr>
-
-                        <tr>
-                            <td> <button mat-raised-button color="accent" class="default">LOCKEDTIME</button></td>
-
-                            <td> <button mat-raised-button disabled class="default">datetime</button></td>
-                            <td> <button mat-raised-button disabled class="default"> NULL</button></td>
-
-                        </tr>
-                    </table>
+                
                 </mat-card>
+
+
+                <mat-expansion-panel class="mat-expansion-demo-width">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Default Fields
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            View Now!
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+
+
+                    
+
+
+                        <mat-card-content>
+                            <!--default fields-->
+                            <table>
+                                <tr>
+                                    <td> <button mat-raised-button color="accent"
+                                            class="default">OBJ_VERSIONNUMBER</button>
+                                    </td>
+
+                                    <td> <button mat-raised-button disabled class="default">Int</button></td>
+                                    <td> <button mat-raised-button disabled class="default">Not NULL</button></td>
+
+                                </tr>
+                                <tr>
+                                    <td> <button mat-raised-button color="accent" class="default">DESCRIPTION</button>
+                                    </td>
+
+                                    <td> <button mat-raised-button disabled class="default">NVarchar(50)</button></td>
+                                    <td> <button mat-raised-button disabled class="default"> NULL</button></td>
+
+                                </tr>
+                                <tr>
+                                    <td> <button mat-raised-button color="accent" class="default">SUBGROUP_ID</button>
+                                    </td>
+
+                                    <td> <button mat-raised-button disabled class="default">NVarchar(50)</button></td>
+                                    <td> <button mat-raised-button disabled class="default">Not NULL</button></td>
+
+                                </tr>
+                                <tr>
+                                    <td> <button mat-raised-button color="accent" class="default">COMMENT</button></td>
+
+                                    <td> <button mat-raised-button disabled class="default">NVarchar(MAX)</button></td>
+                                    <td> <button mat-raised-button disabled class="default"> NULL</button></td>
+
+                                </tr>
+                                <tr>
+                                    <td> <button mat-raised-button color="accent" class="default">DOCU_ONLY</button>
+                                    </td>
+
+                                    <td> <button mat-raised-button disabled class="default">Bit</button></td>
+                                    <td> <button mat-raised-button disabled class="default">Not NULL</button></td>
+
+                                </tr>
+                                <tr>
+                                    <td> <button mat-raised-button color="accent" class="default">DELETION_FLAG</button>
+                                    </td>
+
+                                    <td> <button mat-raised-button disabled class="default">Bit</button></td>
+                                    <td> <button mat-raised-button disabled class="default">Not NULL</button></td>
+
+                                </tr>
+                                <tr>
+                                    <td> <button mat-raised-button color="accent"
+                                            class="default">OBJ_VALID_FROM</button></td>
+
+                                    <td> <button mat-raised-button disabled class="default">NVarchar(50)</button></td>
+                                    <td> <button mat-raised-button disabled class="default"> NULL</button></td>
+
+                                </tr>
+                                <tr>
+                                    <td> <button mat-raised-button color="accent" class="default">OBJ_VALID_TO</button>
+                                    </td>
+
+                                    <td> <button mat-raised-button disabled class="default">NVarchar(50)</button></td>
+                                    <td> <button mat-raised-button disabled class="default"> NULL</button></td>
+
+                                </tr>
+                                <tr>
+                                    <td> <button mat-raised-button color="accent"
+                                            class="default">THIRD_PARTY_SYSTEM_KEY_VALUE</button></td>
+
+                                    <td> <button mat-raised-button disabled class="default">NVarchar(50)</button></td>
+                                    <td> <button mat-raised-button disabled class="default"> NULL</button></td>
+
+                                </tr>
+                                <tr>
+                                    <td> <button mat-raised-button color="accent"
+                                            class="default">IMPLEMENTATION_STATUS</button>
+                                    </td>
+
+                                    <td> <button mat-raised-button disabled class="default">NVarchar(50)</button></td>
+                                    <td> <button mat-raised-button disabled class="default"> NULL</button></td>
+
+                                </tr>
+                                <tr>
+                                    <td> <button mat-raised-button color="accent" class="default">ACTIVE</button></td>
+
+                                    <td> <button mat-raised-button disabled class="default">Int</button></td>
+                                    <td> <button mat-raised-button disabled class="default">Not NULL</button></td>
+
+                                </tr>
+                                <tr>
+                                    <td> <button mat-raised-button color="accent" class="default">REQUEST_ID</button>
+                                    </td>
+
+                                    <td> <button mat-raised-button disabled class="default">NVarchar(50)</button></td>
+                                    <td> <button mat-raised-button disabled class="default"> NULL</button></td>
+
+                                </tr>
+
+
+                                <tr>
+                                    <td> <button mat-raised-button color="accent" class="default">REQUEST_DATE</button>
+                                    </td>
+
+                                    <td> <button mat-raised-button disabled class="default">datetime)</button></td>
+                                    <td> <button mat-raised-button disabled class="default"> NULL</button></td>
+
+                                </tr>
+                                <tr>
+                                    <td> <button mat-raised-button color="accent" class="default">CW_ID</button></td>
+
+                                    <td> <button mat-raised-button disabled class="default">NVarchar(50)</button></td>
+                                    <td> <button mat-raised-button disabled class="default"> NULL</button></td>
+
+                                </tr>
+                                <tr>
+                                    <td> <button mat-raised-button color="accent" class="default">LOCKED</button></td>
+
+                                    <td> <button mat-raised-button disabled class="default">NVarchar(50)</button></td>
+                                    <td> <button mat-raised-button disabled class="default"> NULL</button></td>
+
+                                </tr>
+
+                                <tr>
+                                    <td> <button mat-raised-button color="accent" class="default">LOCKEDTIME</button>
+                                    </td>
+
+                                    <td> <button mat-raised-button disabled class="default">datetime</button></td>
+                                    <td> <button mat-raised-button disabled class="default"> NULL</button></td>
+
+                                </tr>
+                            </table>
+                        </mat-card-content>
+                    
+
+                </mat-expansion-panel>
+                <h1>
+                    <button class="btn btn-primary"  (click)='toggleUpdate()'>Next Update The Created Table Now!Click Me</button>
+                    <!-- routerLink="/update" routerLinkActive="active" -->
+                    <div *ngIf='showUpdate'>
+
+                  <app-view-component></app-view-component>
+                    </div>
+                    <!-- <a class="btn btn-primary" routerLink="/update" routerLinkActive="active" class="font-weight-dark text-dark">Next Update The Created Table Now!Click Me</a> -->
+                </h1>
 
             </div>
         </div>
@@ -199,11 +239,18 @@
         <div class="col-sm-3 col-md-6 col-lg-3">
             <form>
                 <div class="form-group purple-border">
-                    <p class="p-2"></p>
+                
+                 <!-- <div *ngFor="let event of componentsReferences">  {{event.FieldName}} {{event.datatype}}] {{event.marked}}</div> -->
+                    <!-- <div *ngFor="let f of filterCriteria">
+  
+                       
+                      </div> -->
+                     
                     <!--Text Area in progress-->
-                    <textarea class="form-control p-3" rows="25" #query>
-                            CREATE TABLE [dbo].[{{ObjectName}}]
-                            ([{{FieldName}}] [{{datatype}}] {{marked}},
+                    <textarea  class="form-control p-3" rows="25" #query>
+                            CREATE TABLE [dbo].[CUSTOMIZING_{{ObjectName}}]
+                            ([{{FieldName}}]   [{{datatype}}] {{marked}},
+                            [{{filterCriteria.FieldName}}][{{filterCriteria.datatype}}][{{filterCriteria.marked}}]
                              [OBJ_VERSIONNUMBER] [int] NOT NULL,                         
                              [DESCRIPTION] [NVARCHAR](50) NULL,                    
                              [SUBGROUP_ID] [nvarchar](50) NOT NULL,
@@ -224,9 +271,12 @@
                         Query</button>
                 </div>
             </form>
+
         </div>
         <!--Second Column Ends  here-->
 
     </div>
     <!--Grid row page content ends here-->
+
 </div>
+

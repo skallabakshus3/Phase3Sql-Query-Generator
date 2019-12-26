@@ -1,6 +1,6 @@
-import { Component,   ViewContainerRef, ViewChild, ComponentFactoryResolver, ComponentRef } from '@angular/core';
+import { Component,   ViewContainerRef, ViewChild, ComponentFactoryResolver, ComponentRef, Input, ElementRef } from '@angular/core';
 import {FormGroup , FormsModule,FormBuilder, Validators} from '@angular/forms';
-import { FieldTemplateComponent } from '../field-template/field-template.component';
+import { FieldTemplateComponent, CustomFields } from '../field-template/field-template.component';
 
 @Component({
   selector: 'app-create-component',
@@ -9,15 +9,26 @@ import { FieldTemplateComponent } from '../field-template/field-template.compone
 })
 export class CreateComponentComponent  {
   
-  
+  lstColumn : any[];
   regiForm: FormGroup;  
-  
   query: any;
+  showUpdate : boolean=false;
+
+
+
+   ngOnInit() {
+
+
+   }
+
+
+
+
    constructor(private fb: FormBuilder,private CFR: ComponentFactoryResolver) {   
-  
-  
     // To initialize FormGroup  
     this.regiForm = this.fb.group({  
+      oBJ_ID: ['', [Validators.required, Validators.minLength(6)]],
+      oBJ_FIELD_ID: ['', [Validators.required, Validators.minLength(6)]],
       'ObjectName' : [null, Validators.required],
      'DataType':[null, Validators.required],
       'FieldName' : [null, Validators.required],
@@ -25,16 +36,14 @@ export class CreateComponentComponent  {
     });  
   
   }  
-
   marked = "";
   theCheckbox = false;
   status: 'not_accepted'
   toggleVisibility(e){
     this.marked= (e.target.checked? "NULL": "NOT NULL");
   }
- 
   options: string[] = ['varchar', 'nvarchar','datetime','int','Bit'];
-  
+   @ViewChild('FieldTemplateComponent', { static: true, read: ViewContainerRef }) ftc: FieldTemplateComponent;
  
   @ViewChild('viewContainerRef', { static: true, read: ViewContainerRef }) VCR: ViewContainerRef;
   index: number = 0;
@@ -78,6 +87,13 @@ copyToClipboard(element) {
   this.query('success', 'Success!', 'Link copied to clipboard.');
 }
  
+toggleUpdate()
+{
+this.showUpdate=!this.showUpdate;
+}
+
+
+
  }
 
 

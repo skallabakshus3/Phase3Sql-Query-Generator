@@ -12,7 +12,7 @@ export class ViewComponentComponent implements OnInit {
   @ViewChildren(SectionComponent) sections: QueryList<SectionComponent>;
   activeSections: SectionComponent[];
   textComponentFactory: ComponentFactory<DynamicTemplateComponent>;
-  viewContainerRef: any;
+ 
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 

@@ -10,6 +10,7 @@ import { NonNullAssert } from '@angular/compiler';
 export class UpdateComponentComponent implements OnInit {
 
   @Output() addComponentClick = new EventEmitter();
+  @Output() removeComponent = new EventEmitter();
   registerForm: FormGroup;
   submitted = false;
  
